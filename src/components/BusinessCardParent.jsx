@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BusinessCardDisplay from "./BusinessCardDisplay";
 import BusinessCardForm from "./BusinessCardForm";
 
@@ -7,6 +7,19 @@ export default function BusinessCardParent() {
 	const [name, setName] = useState("Default Name");
 	const [email, setEmail] = useState("test@email.com");
 	const [editMode, setEditMode] = useState(false);
+
+
+	useEffect(() => {
+		console.log("Name was updated!");
+	}, [name]);
+
+	useEffect(() => {
+		console.log("Email was updated!");
+	}, [email]);
+
+	useEffect(() => {
+		console.log("Name OR Email was updated!");
+	}, [name, email]);
 
 	// constructor(props){
 	// 	super(props);
